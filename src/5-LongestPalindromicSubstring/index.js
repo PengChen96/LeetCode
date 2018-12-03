@@ -1,13 +1,3 @@
-/**
-Example 1:
-	Input: "babad"
-	Output: "bab"
-	Note: "aba" is also a valid answer.
-
-Example 2:
-	Input: "cbbd"
-	Output: "bb"
-*/
 
 /**
  * @param {string} s
@@ -51,6 +41,3 @@ var loop = function (i, pa) {
     return returnObj;
   }
 }
-var s = 'abacab';
-// '#b#a#b#a#d#'  #b#a#b#
-longestPalindrome(s);
