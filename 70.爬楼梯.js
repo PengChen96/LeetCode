@@ -39,13 +39,44 @@
  *
  */
 
+/*
+ * f(1) = 1
+ * f(2) = 2
+ * f(3) = f(n-1) + f(n-2)
+ */
+
 // @lc code=start
 /**
  * @param {number} n
  * @return {number}
  */
+let memo = new Map()
+memo.set(1, 1);
+memo.set(2, 2);
 var climbStairs = function (n) {
-
+  if (n === 1) return 1;
+  if (n === 2) return 2;
+  if (memo.get(n)) {
+    return memo.get(n);
+  } else {
+    let result = climbStairs(n - 1) + climbStairs(n - 2);
+    memo.set(n, result);
+    return result;
+  }
 };
 // @lc code=end
 
+// var climbStairs = function(n) {
+//   if (n === 1) return 1;
+//   if (n === 2) return 2;
+//   let prepre = 1; // n-2
+//   let pre = 2;    // n-1
+//   let result = 3;
+//   for (let i = 3; i <= n; i++) {
+//     console.log(i)
+//     result = pre + prepre;
+//     prepre = pre;
+//     pre = result;
+//   }
+//   return result;
+// };
